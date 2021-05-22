@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ewertonilima.dscatalog.dto.CategoryDTO;
 import com.ewertonilima.dscatalog.entities.Category;
 import com.ewertonilima.dscatalog.repositories.CategoryRepository;
+import com.ewertonilima.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CategoryService {
@@ -40,6 +41,19 @@ public class CategoryService {
 		entity.setName(dto.getName());
 		entity = categoryRepository.save(entity);
 		return new CategoryDTO(entity);
+	}
+
+	@Transactional
+	public CategoryDTO put(Long id, CategoryDTO dto) {
+		try {
+			Category entity = categoryRepository.getOne(id);
+			entity.setName(dto.getName());
+			entity = categoryRepository.save(entity);
+			return new CategoryDTO(entity);
+		} 
+		catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Id not found " + id);
+		}
 	}
 
 }
