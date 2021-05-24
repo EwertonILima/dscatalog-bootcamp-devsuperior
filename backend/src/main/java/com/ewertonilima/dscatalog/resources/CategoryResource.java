@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +31,7 @@ public class CategoryResource {
 		return ResponseEntity.ok().body(list);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<CategoryDTO> findById(@PathVariable Long id) {
 		CategoryDTO dto = categoryService.findById(id);
 		return ResponseEntity.ok().body(dto);
@@ -44,10 +45,15 @@ public class CategoryResource {
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<CategoryDTO> put(@PathVariable Long id, @RequestBody CategoryDTO dto){
-		dto = categoryService.put(id, dto);
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @RequestBody CategoryDTO dto){
+		dto = categoryService.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
 
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		categoryService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 }
