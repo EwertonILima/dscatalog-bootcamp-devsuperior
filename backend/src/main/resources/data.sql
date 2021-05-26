@@ -1,3 +1,17 @@
 INSERT INTO tb_category (name, created_At) values ('Books', NOW());
 INSERT INTO tb_category (name, created_At) values ('Eletronics', NOW());
 INSERT INTO tb_category (name, created_At) values ('Computers', NOW());
+INSERT INTO tb_category (name, created_At) values ('Notebooks', NOW());
+INSERT INTO tb_category (name, created_At) values ('Tablets', NOW());
+INSERT INTO tb_category (name, created_At) values ('Phones', NOW());
+INSERT INTO tb_category (name, created_At) values ('Games', NOW());
+INSERT INTO tb_category (name, created_At) values ('Microwaves', NOW());
+INSERT INTO tb_category (name, created_At) values ('TVs', NOW());
+INSERT INTO tb_category (name, created_At) values ('Keyboards', NOW());
+INSERT INTO tb_category (name, created_At) values ('Mouses', NOW());
+INSERT INTO tb_category (name, created_At) values ('Cables', NOW());
+INSERT INTO tb_category (name, created_At) values ('Routers', NOW());
+INSERT INTO tb_category (name, created_At) values ('Storage', NOW());
+INSERT INTO tb_category (name, created_At) values ('LEDs', NOW());
+INSERT INTO tb_category (name, created_At) values ('Wearables', NOW());
+INSERT INTO tb_category (name, created_At) values ('Graphic Cards', NOW());
