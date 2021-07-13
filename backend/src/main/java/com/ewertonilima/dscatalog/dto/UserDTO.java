@@ -13,12 +13,12 @@ public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	
-	@NotBlank(message = "Campo obrigatório")
+
+	@NotBlank(message = "Required field")
 	private String firstName;
 	private String lastName;
-	
-	@Email(message = "Favor entrar um email válido")
+
+	@Email(message = "Please enter a valid email address")
 	private String email;
 
 	Set<RoleDTO> roles = new HashSet<>();

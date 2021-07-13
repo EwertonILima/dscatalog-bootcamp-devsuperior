@@ -17,18 +17,18 @@ public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	
-	@NotBlank(message = "Campo obrigatório")
+
+	@NotBlank(message = "Required field")
 	private String name;
-	
-	@NotBlank(message = "Campo obrigatório")
+
+	@NotBlank(message = "Required field")
 	private String description;
-	
-	@Positive(message = "Preço deve ser um valor positivo")
+
+	@Positive(message = "Price must be a positive value")
 	private Double price;
 	private String imgUrl;
-	
-	@PastOrPresent(message = "A data do produto não pode ser futura")
+
+	@PastOrPresent(message = "Product date cannot be in the future.")
 	private Instant date;
 
 	private List<CategoryDTO> categories = new ArrayList<>();
