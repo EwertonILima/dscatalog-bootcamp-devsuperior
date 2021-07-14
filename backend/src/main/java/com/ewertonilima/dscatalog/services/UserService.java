@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ewertonilima.dscatalog.dto.RoleDTO;
 import com.ewertonilima.dscatalog.dto.UserDTO;
 import com.ewertonilima.dscatalog.dto.UserPostDTO;
+import com.ewertonilima.dscatalog.dto.UserUpdateDTO;
 import com.ewertonilima.dscatalog.entities.Role;
 import com.ewertonilima.dscatalog.entities.User;
 import com.ewertonilima.dscatalog.repositories.RoleRepository;
@@ -60,7 +60,7 @@ public class UserService {
 	}
 	
 	@Transactional
-	public UserDTO update(Long id, UserDTO dto) {
+	public UserDTO update(Long id, UserUpdateDTO dto) {
 		try {
 			User entity = userRepository.getOne(id);
 			copyDtoToEntity(dto, entity);
@@ -95,6 +95,6 @@ public class UserService {
 			Role role = roleRepository.getOne(roleDto.getId());
 			entity.getRoles().add(role);
 		}
-		
+
 	}
 }
