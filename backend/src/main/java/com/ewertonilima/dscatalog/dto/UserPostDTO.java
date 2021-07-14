@@ -1,5 +1,8 @@
 package com.ewertonilima.dscatalog.dto;
 
+import com.ewertonilima.dscatalog.services.validation.UserInsertValid;
+
+@UserInsertValid
 public class UserPostDTO extends UserDTO {
 	private static final long serialVersionUID = 1L;
 
